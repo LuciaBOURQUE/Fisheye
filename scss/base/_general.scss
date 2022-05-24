@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+}
+
+h2 {
+    color: $saumon;
+    @include layoutypo;
+    font-size: 36px;
+    line-height: 47px;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: $brown;
+    @include layoutypo;
+    padding: 0 3px;
+    font-size: 13px;
+    line-height: 17px;
+}
+
+h4 {
+    color: black;
+    @include layoutypo;
+    font-size: 10px;
+    line-height: 13px;
+}
+
+p {
+    color: $grey;
+    @include layoutypo;
+    font-size: 10px;
+    line-height: 13px;
+}

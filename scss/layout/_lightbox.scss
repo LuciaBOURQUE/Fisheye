@@ -1,0 +1,66 @@
+.lightbox-open {
+    position: fixed;
+    top: 0px;
+    left:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 1;
+    //height: 100%;
+    width: 100%;
+}
+
+.lightbox-container {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 40px minmax(130px, calc(100% - 100px)) 40px;
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    max-width: 95%;
+    &__media {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.media {
+    object-fit: cover;
+    grid-area: 1/2/2/3;
+    width: 100%;
+    max-height: calc(100vh - 80px);
+    border-radius: 5px;
+}
+
+// Les flèches précédent et suivant
+.arrow-left {
+    @include arrow;
+    grid-area: 1/1/3/2;
+}
+
+.arrow-right {
+    @include arrow;
+    grid-area: 1/3/3/4;
+}
+
+.title {
+    grid-area: 2/2/3/3;
+}
+
+// Bouton "Close lightbox"
+.close {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 40px;
+    min-height: 40px;
+    cursor: pointer;
+}
+
+i {
+    font-size: 1.5rem;
+    color: $brown;
+}

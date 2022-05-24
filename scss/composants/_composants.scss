@@ -1,0 +1,8 @@
+// LES BOUTONS
+.open-modal-button, .contact_button {
+    @include btn;
+}
+
+svg {
+    cursor: pointer;
+}

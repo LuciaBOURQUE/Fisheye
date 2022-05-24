@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="scss/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6b82c41e21.js" crossorigin="anonymous"></script>
+    <title>Fisheye - photographe </title>
+  </head>
+
+  <body id="body">
+    <header>
+      <a href="index.html">
+        <img class="logo"  src="assets/images/logo.png" alt="Logo de Fisheye - page accueil" /> <!-- 1 -->
+      </a>
+    </header>
+
+    <main id="main" aria-hidden="false">
+      <section class="photograph-media">
+        <div class="photograph-media__grid"></div>
+      </section>
+
+      <div class="total">
+        <div class="total__likes">
+          <p class="like-total"></p>
+          <svg class="icon-total" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.5 18.35L8.23125 17.03C3.725 12.36 0.75 9.28 0.75 5.5C0.75 2.42 2.8675 0 5.5625 0C7.085 0 8.54625 0.81 9.5 2.09C10.4537 0.81 11.915 0 13.4375 0C16.1325 0 18.25 2.42 18.25 5.5C18.25 9.28 15.275 12.36 10.7688 17.04L9.5 18.35Z" fill="#911C1C"/>
+          </svg>
+        </div>
+
+        <div class="total__price">
+          <p> 300€ / jour </p>
+        </div>
+      </div>
+
+
+      <aside id="modal-lightbox" class="lightbox-open" aria-label="vue de l'image dans la lightbox" aria-hidden="true">
+      </aside>
+      
+    </main>
+
+    <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="modale de contact avec POINTE">
+			<div class="modal">
+				<header>
+          <h2>Contactez-moi <br> + pointe</h2>
+          <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+        </header>
+
+				<form
+          name="myForm"
+          id="myForm"
+          action="index.html"
+          method="GET">
+
+            <!-- Prénom -->
+						<label for="first">Prénom</label>
+            <input
+            class="text-control first-name"
+            type="text"
+            id="first"
+            name="first"
+            required minlength="2"/><br>
+
+            <!-- Nom -->
+            <label for="last">Nom</label>
+            <input
+            class="text-control last-name"
+            type="text"
+            id="last"
+            name="last"
+            required minlength="2"/><br>
+
+            <!-- Email -->
+            <label for="email">E-mail</label>
+            <input
+            type="email"
+            class="text-control mail-name"
+            id="email"
+            name="email"
+            required/><br>
+
+            <!-- Prénom -->
+						<label for="message">Votre message</label>
+            <input
+            class="text-control first-name"
+            type="text"
+            id="message"
+            name="message"/><br>
+
+          <button class="contact_button" type="submit">Envoyer</button>
+				</form>
+
+			</div>
+		</div>
+
+
+    <script src="/scripts/utils/menuSort.js"></script>
+    <script src="/scripts/utils/likesCounter.js"></script>
+    <script src="/scripts/utils/lightBox.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/factories/Factorymedia.js"></script>
+    <script src="scripts/factories/Factorylightbox.js"></script>
+    
+    <!-- <script src="/scripts/utils/contactForm.js"></script> -->
+  </body>
+</html>
