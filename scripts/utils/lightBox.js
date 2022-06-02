@@ -20,15 +20,15 @@ function closeLightbox () {
     lightbox.removeChild(boxContainer);
 }
 
-/*
-// Bouton du type flèche "Précédent"
-// Je veux afficher l'image précédent celle ou je suis
-let btnPrevious = document.querySelector('.arrow-left');
-console.log(btnPrevious);
-function prevMedia () {
-    // Enlever ici le eventListener DOM x
-    // Faire un listener et passer en paramètre de displayLightBox (tableau de querySelector avec indexOf -1)
-    // Si inférieur à 0 doit repasser à 0 par le lenght
-    let img = document.querySelector('.media');
+function changeMediaOnLightbox(arr, index) {
+    const prevIndex = arr[index] // Image précédente
+    console.log(index)
+    console.log(prevIndex);
+
+    const src = prevIndex.firstElementChild.getAttribute("src");
+    const here = document.querySelector('.media');
+    console.log(src);
+
+    here.setAttribute("src", src);
+    console.log(here);
 }
-*/

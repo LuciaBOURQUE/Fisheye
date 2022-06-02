@@ -58,7 +58,6 @@ fetch('data/photographers.json')
         // Affichage dynamique de la lightbox
         const mediaPhoto = document.querySelectorAll(".media_photo__image");
         console.log(mediaPhoto)
-
         mediaPhoto.forEach((image) => {
             image.addEventListener('click', () => {
                 displayLightbox(medias, image.parentNode.id);
@@ -68,27 +67,25 @@ fetch('data/photographers.json')
                 let index = arr.indexOf(image); // Image actuel
 
                 let btnPrevious = document.querySelector('.arrow-left');
-                console.log(btnPrevious);
                 btnPrevious.addEventListener('click', (e) => {
-                    index -= 1; // Image précédente
-                    const mediaLightboxImage = document.querySelector(".media");
-                    const mediaLightboxTitle = document.querySelector(".title");
+                    index -= 1; 
 
                     if (index < 0) {
                         index = arr.length - 1
-                        index = name.length - 1
-                      }
-                
-                      const src = arr[index]
-                      const nameSrc = name[this.index]
-                
-                      mediaLightboxImage.innerHTML = `${src}`
-                      mediaLightboxTitle.innerHTML = `${nameSrc}`
+                    }
+                    changeMediaOnLightbox(arr, index);
+                });
 
-                    /*
-                    displayLightbox(arr[index]); //on rappelle la fonction avec l'élement au nouvel index
-                    */
-                })
+                let btnNext = document.querySelector('.arrow-right');
+                btnNext.addEventListener('click', (e) => {
+                    index += 1; 
+
+                    if (index >= arr.length) {
+                        index = 0
+                    }
+                    changeMediaOnLightbox(arr, index);
+                });
+
             });
         })
 
@@ -98,11 +95,6 @@ fetch('data/photographers.json')
 .catch(error => {
 console.log('Vous avez fait une erreur:' + error);
 })*/
-
-
-
-
-
 
 
 
