@@ -111,6 +111,15 @@
 			"price": 55
 		},
 		{
+            "id": 8328953,
+            "photographerId": 82,
+            "title": "Wooden sculpture of a horse",
+            "video": "Art_Wooden_Horse_Sculpture.mp4",
+            "likes": 24,
+            "date": "2011-12-08",
+            "price": 100
+          },
+		{
 			"id": 7502053,
 			"photographerId": 82,
 			"title": "Triangle Man",
