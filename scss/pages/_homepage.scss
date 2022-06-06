@@ -4,24 +4,35 @@
     gap: 70px;
     margin-top: 100px;
     article {
-        justify-self: center;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column; 
-        img {
-            height: 200px;
-            width: 200px;
-        }
+        align-items: center;
+    }
+}
+
+.photographer__image {
+    text-decoration: none;
+    justify-content: center;
+    img {
+        margin: 0;
+        height: 200px;
+        width: 200px;
+        transition: transform 0.5s;
+        border-radius: 50%;
+        object-fit: cover; 
+    }
+}
+
+.photographer__image img:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    h2 {
+        color: $brown;
     }
 }
 
 .place {
     border: 1px, solid, green;
     display: flex;
-}
-
-.photographer img {
-    border-radius: 50%;
-    object-fit: cover;
+    justify-content: center;
 }

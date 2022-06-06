@@ -12,16 +12,16 @@ function photographerFactory (data) {
         profil.setAttribute("id", `${id}`);
         profil.setAttribute("aria-label", `profil de ${name}`);
 
-        profil.innerHTML = `<a href="photographer.html?id=${id}&name=${name}">
+        profil.innerHTML = `<a class="photographer__image" href="photographer.html?id=${id}&name=${name}">
                                 <img src="${picture}" alt="${name} - Aller à la page profil de ${name}" />
                                 <h2>${name}</h2>
-                            <a />
+                            <a/>
                             <div class="place">
                                 <h3>${city}</h3>
                                 <h3>${country}</h3>
                             </div>
                             <h4>${tagline}</h4>
-                            <p>${price}</p> `
+                            <p>${price} €/jour</p>`
 return (profil);
     }
 

@@ -93,7 +93,7 @@ svg {
 /* Mise en forme pour les champs invalides des inputs */
 .data-error {
   margin: 10px 0 0 0;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #901C1C;
   display: block;
   margin: 7px 0 10px 0;
@@ -104,7 +104,7 @@ svg {
   transition: 0.3s;
 }
 
-input .error {
+.error {
   border: 2px solid #901C1C;
 }
 
@@ -245,25 +245,47 @@ header {
 }
 
 .photographer_section article {
-  justify-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.photographer_section article img {
+.photographer__image {
+  text-decoration: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.photographer__image img {
+  margin: 0;
   height: 200px;
   width: 200px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.photographer__image img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.photographer__image img:hover h2 {
+  color: #901C1C;
 }
 
 .place {
@@ -271,12 +293,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.photographer img {
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .photograph-header {

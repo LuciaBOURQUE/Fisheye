@@ -9,7 +9,7 @@
 /* Mise en forme pour les champs invalides des inputs */
 .data-error {
     margin: 10px 0 0 0;
-    font-size: 1em;
+    font-size: 0.8em;
     color: $brown;
     display: block;
     margin: 7px 0 10px 0;
@@ -19,6 +19,6 @@
     transition: 0.3s;
   }
 
-input .error {
+.error {
     border: 2px solid $brown;
 }
