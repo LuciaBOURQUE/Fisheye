@@ -7,6 +7,7 @@ const body = document.getElementById("body");
 function openLightbox () {
     main.setAttribute('aria-hidden', 'true');
     lightbox.setAttribute('aria-hidden', 'false');
+    body.classList.add('no-scroll');
     lightbox.style.display = "block";
 }
 
@@ -14,21 +15,18 @@ function openLightbox () {
 function closeLightbox () {
     main.setAttribute('aria-hidden', 'false');
     lightbox.setAttribute('aria-hidden', 'true');
+    body.classList.remove('no-scroll');
+
     const boxContainer = document.querySelector(".lightbox-container");
     lightbox.style.display = "none";
-
     lightbox.removeChild(boxContainer);
 }
 
 function changeMediaOnLightbox(arr, index) {
-    const prevIndex = arr[index] // Image précédente
-    console.log(index)
-    console.log(prevIndex);
+    const slideIndex = arr[index]
 
-    const src = prevIndex.firstElementChild.getAttribute("src");
+    const src = slideIndex.firstElementChild.getAttribute("src");
     const here = document.querySelector('.media');
-    console.log(src);
 
     here.setAttribute("src", src);
-    console.log(here);
 }

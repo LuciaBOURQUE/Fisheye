@@ -43,7 +43,10 @@
     <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="modale de contact avec POINTE">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi <br> + pointe</h2>
+          <div class="modal-photographer">
+            <h2 class="modal-contact">Contactez-moi</h2>
+            <h2 class="name-photographer"></h2>
+          </div>
           <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 
@@ -60,7 +63,8 @@
             type="text"
             id="first"
             name="first"
-            required minlength="2"/><br>
+            required minlength="2"/>
+            <span class="data-error first-error">Veuillez entrez 2 caractères ou plus</span>
 
             <!-- Nom -->
             <label for="last">Nom</label>
@@ -69,24 +73,27 @@
             type="text"
             id="last"
             name="last"
-            required minlength="2"/><br>
+            required minlength="2"/>
+            <span class="data-error last-error">Veuillez entrez 2 caractères ou plus</span>
 
             <!-- Email -->
             <label for="email">E-mail</label>
             <input
             type="email"
-            class="text-control mail-name"
+            class="text-control email-name"
             id="email"
             name="email"
-            required/><br>
+            required/>
+            <span class="data-error email-error">Veuillez entrez une adresse mail valide</span>
 
-            <!-- Prénom -->
+            <!-- Message -->
 						<label for="message">Votre message</label>
             <input
-            class="text-control first-name"
+            class="text-control message"
             type="text"
             id="message"
-            name="message"/><br>
+            name="message"/>
+            <span class="data-error message-error">Veuillez entrez votre message</span>
 
           <button class="contact_button" type="submit">Envoyer</button>
 				</form>

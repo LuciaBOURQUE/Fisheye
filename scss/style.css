@@ -76,6 +76,38 @@ svg {
   cursor: pointer;
 }
 
+.modal-photographer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal-photographer .modal-contact {
+  margin-bottom: 0px;
+}
+
+/* Mise en forme pour les champs invalides des inputs */
+.data-error {
+  margin: 10px 0 0 0;
+  font-size: 1em;
+  color: #901C1C;
+  display: block;
+  margin: 7px 0 10px 0;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input .error {
+  border: 2px solid #901C1C;
+}
+
 .lightbox-open {
   position: fixed;
   top: 0px;

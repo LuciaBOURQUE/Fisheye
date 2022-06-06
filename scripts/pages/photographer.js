@@ -28,7 +28,7 @@ fetch('data/photographers.json')
                                     </div>
                                 </aside>
                                 
-                                <button class="open-modal-button" onclick="openModal()">Contactez-moi</button>
+                                <button class="open-modal-button">Contactez-moi</button>
                                 
                                 <img src="assets/photographers/${profilPhotograph.portrait}" alt="${profilPhotograph.name}"/>`
 
@@ -57,7 +57,6 @@ fetch('data/photographers.json')
 
         // Affichage dynamique de la lightbox
         const mediaPhoto = document.querySelectorAll(".media_photo__image");
-        console.log(mediaPhoto)
         mediaPhoto.forEach((image) => {
             image.addEventListener('click', () => {
                 displayLightbox(medias, image.parentNode.id);
@@ -87,6 +86,35 @@ fetch('data/photographers.json')
                 });
 
             });
+        })
+
+        // --- Ouverture et fermeture de la modal ----
+        // Affichage du nom du Photographe dans la modal
+        function modalNamePhotographe() {
+            const namePhotographer = document.querySelector(".name-photographer");
+            const nameTemplate = `${profilPhotograph.name}`
+            namePhotographer.innerHTML = nameTemplate;
+        }
+
+        // Ouverture de la modal + Acessibilité via la touche "Enter"
+        const openAcessKeydownModal = document.querySelector('.open-modal-button');
+        openAcessKeydownModal.addEventListener("click", () => {
+            openModal();
+            modalNamePhotographe();
+        });
+        openAcessKeydownModal.addEventListener("keydown", (e) => {
+            if(e.key === "Enter") {
+                openModal();
+                modalNamePhotographe();
+            }
+        })
+
+        // Fermeture de la modal pour l'Acessibilité via la touche "Escape"
+        const closeAcessKeydownModal = document.querySelector('.open-modal-button');
+        closeAcessKeydownModal.addEventListener("keydown", (e) => {
+            if(e.key === "Escape") {
+                closeModal();
+            }
         })
 
 

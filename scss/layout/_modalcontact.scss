@@ -1,0 +1,24 @@
+.modal-photographer {
+    display: flex;
+    flex-direction: column;
+    .modal-contact {
+        margin-bottom: 0px;
+    }
+}
+
+/* Mise en forme pour les champs invalides des inputs */
+.data-error {
+    margin: 10px 0 0 0;
+    font-size: 1em;
+    color: $brown;
+    display: block;
+    margin: 7px 0 10px 0;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+input .error {
+    border: 2px solid $brown;
+}
