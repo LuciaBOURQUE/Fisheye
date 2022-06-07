@@ -1,4 +1,4 @@
-// Récupération des données avec la méthode "FETCH"
+// Récupération des données JSON avec la méthode "FETCH"
 fetch('data/photographers.json') // On va contacter le fichier ou se situe les données
 .then(response => { // Je récupère une réponse('response') avec THEN
 return response.json(); // On formate ici la réponse('reponse') en JSON pour pouvoir la lire
@@ -9,7 +9,7 @@ return response.json(); // On formate ici la réponse('reponse') en JSON pour po
         displayData(photographers);
     })
 
-    .catch(error => { // On attrape les erreurs au cas ou
+    .catch(error => {
     console.log('Vous avez fait une erreur:' + error);
     })
 

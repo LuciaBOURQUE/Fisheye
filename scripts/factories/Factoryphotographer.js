@@ -17,7 +17,7 @@ function photographerFactory (data) {
                                 <h2>${name}</h2>
                             <a/>
                             <div class="place">
-                                <h3>${city}</h3>
+                                <h3>${city}, </h3>
                                 <h3>${country}</h3>
                             </div>
                             <h4>${tagline}</h4>

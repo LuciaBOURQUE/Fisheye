@@ -1,18 +1,19 @@
+// MISE EN PAGE DE LA HOMEPAGE
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin: 100px 0;
     article {
         display: flex;
-        flex-direction: column; 
-        align-items: center;
+        flex-direction: column;
+        text-align: center;
     }
 }
 
 .photographer__image {
     text-decoration: none;
-    justify-content: center;
+    cursor: pointer;
     img {
         margin: 0;
         height: 200px;
@@ -24,15 +25,12 @@
 }
 
 .photographer__image img:hover {
+    box-shadow: 2px 2px 8px rgba($saumon, 0.432);
     transform: scale(1.05);
     transition: 0.5s;
-    h2 {
-        color: $brown;
-    }
 }
 
 .place {
-    border: 1px, solid, green;
     display: flex;
     justify-content: center;
 }

@@ -1,3 +1,49 @@
+#contact_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, .9);
+}
+
+/* Ajout de cette class pour empêcher le scroll en arrière-plan */
+.no-scroll {
+    overflow: hidden;
+ }
+
+
+.modal {
+    margin: 2% auto;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+}
+
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+    h2 {
+        margin-bottom: 30px;
+        font-weight: normal;
+        text-align: left;
+        color: black;
+    }
+    img {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+    }
+}
+
 .modal-photographer {
     display: flex;
     flex-direction: column;
@@ -6,7 +52,31 @@
     }
 }
 
+#myForm {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    label {
+        color: #312E2E;
+        font-size: 20px;
+    }
+    input {
+        width: 100%;
+        height: 50px;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+}
+
 /* Mise en forme pour les champs invalides des inputs */
+.error input {
+    border: 2px solid red;
+}
+.valid input {
+    border: 2px solid green;
+}
+
 .data-error {
     margin: 10px 0 0 0;
     font-size: 0.8em;
@@ -17,8 +87,4 @@
     line-height: 0.3;
     opacity: 0;
     transition: 0.3s;
-  }
-
-.error {
-    border: 2px solid $brown;
 }

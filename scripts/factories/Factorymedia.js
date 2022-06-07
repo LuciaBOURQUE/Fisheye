@@ -1,13 +1,12 @@
 // FACTORY FUNCTION (Design pattern type Creational Design) - LES PHOTOGRAPHES
-// Page d'accueil > Affichage de tout les profils
 function mediaFactory (data) {
-    const { id, photographerId, title, image, video, likes, date } = data;
+    const { id, title, image, video, likes, date } = data;
     const photo = `assets/images/${image}`;
     //const movie = `assets/images/${video}`;
     //console.log(movie);
 
 
-    // Création de la section "Les médias du photographe" (photos)
+    // Création de la section PHOTOS "Les médias du photographe" (photos)
     function getMediaCardDOM() {
         const mediaUser = document.createElement('div');
         mediaUser.classList.add("media_photo");
@@ -28,7 +27,7 @@ function mediaFactory (data) {
     }
 
 
-    // Création de la section "Les médias du photographe" (videos)
+    // Création de la section VIDEOS "Les médias du photographe"
     function getVideoCardDOM() {
     const videoUser = document.createElement('div');
     videoUser.classList.add("media_video");
@@ -54,13 +53,12 @@ function mediaFactory (data) {
         const input = document.createElement('div');
         input.classList.add("photograph-media__input");
         
-        input.innerHTML = ` <label for="trie">Trier par</label>
-                            <select name="trie" id="trie">
-                                <option value="popularite" class="${likes}">Popularité</option>
-                                <option value="date" class="${date}">Date</option>
-                                <option value="titre" class="${title}" selected>Titre</option>
-                            </select>
-                            <p class="test-trie"></p>`
+        input.innerHTML = ` <label for="trie" class="trie-text">Trier par</label>
+                            <select name="trie" id="trie" aria-haspopup="liste de selection">
+                                <option value="popularite" selected >Popularité</option>
+                                <option value="date">Date</option>
+                                <option value="titre">Titre</option>
+                            </select>`
     return (input);  
     }
 

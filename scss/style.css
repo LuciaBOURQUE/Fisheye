@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -23,7 +24,7 @@ h2 {
   font-weight: normal;
   text-align: center;
   margin: 0;
-  font-size: 36px;
+  font-size: 34px;
   line-height: 47px;
   margin-bottom: 0;
 }
@@ -34,8 +35,9 @@ h3 {
   font-weight: normal;
   text-align: center;
   margin: 0;
+  margin: 3px 0;
   padding: 0 3px;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 17px;
 }
 
@@ -45,7 +47,8 @@ h4 {
   font-weight: normal;
   text-align: center;
   margin: 0;
-  font-size: 10px;
+  font-size: 13px;
+  margin: 3px 0;
   line-height: 13px;
 }
 
@@ -55,7 +58,7 @@ p {
   font-weight: normal;
   text-align: center;
   margin: 0;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 13px;
 }
 
@@ -76,6 +79,64 @@ svg {
   cursor: pointer;
 }
 
+#contact_modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Ajout de cette class pour empêcher le scroll en arrière-plan */
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal {
+  margin: 2% auto;
+  border-radius: 5px;
+  background-color: #DB8876;
+  width: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 35px;
+}
+
+.modal header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.modal header h2 {
+  margin-bottom: 30px;
+  font-weight: normal;
+  text-align: left;
+  color: black;
+}
+
+.modal header img {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
 .modal-photographer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,7 +151,41 @@ svg {
   margin-bottom: 0px;
 }
 
+#myForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#myForm label {
+  color: #312E2E;
+  font-size: 20px;
+}
+
+#myForm input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
 /* Mise en forme pour les champs invalides des inputs */
+.error input {
+  border: 2px solid red;
+}
+
+.valid input {
+  border: 2px solid green;
+}
+
 .data-error {
   margin: 10px 0 0 0;
   font-size: 0.8em;
@@ -102,10 +197,6 @@ svg {
   opacity: 0;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.error {
-  border: 2px solid #901C1C;
 }
 
 .lightbox-open {
@@ -235,13 +326,19 @@ header {
   margin-left: 100px;
 }
 
+.informations__place {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .photographer_section {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
-  margin-top: 100px;
+  margin: 100px 0;
 }
 
 .photographer_section article {
@@ -252,16 +349,12 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-align: center;
 }
 
 .photographer__image {
   text-decoration: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  cursor: pointer;
 }
 
 .photographer__image img {
@@ -278,18 +371,15 @@ header {
 }
 
 .photographer__image img:hover {
+  -webkit-box-shadow: 2px 2px 8px rgba(211, 87, 60, 0.432);
+          box-shadow: 2px 2px 8px rgba(211, 87, 60, 0.432);
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.photographer__image img:hover h2 {
-  color: #901C1C;
-}
-
 .place {
-  border: 1px, solid, green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,7 +414,7 @@ header {
 
 .informations h1 {
   color: #D3573C;
-  font-size: 64px;
+  font-size: 50px;
   font-style: normal;
   font-weight: normal;
   margin: 0 0 20px 0;
@@ -338,6 +428,25 @@ header {
   font-size: 18px;
   text-align: left;
   margin-top: 20px;
+}
+
+.photograph-media__input {
+  margin: 20px 0;
+}
+
+.trie-text {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+#trie {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background-color: #901C1C;
+  color: white;
+  font-weight: 500;
 }
 
 #main, .photograph-media {
@@ -413,89 +522,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#contact_modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.no-scroll {
-  overflow: hidden;
-}
-
-.modal {
-  margin: 2% auto;
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 35%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 35px;
-}
-
-.modal header {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-.modal header h2 {
-  margin-bottom: 30px;
-  font-weight: normal;
-  text-align: left;
-  color: black;
-}
-
-.modal header img {
-  cursor: pointer;
-  height: 30px;
-  width: 30px;
-}
-
-#myForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-#myForm label {
-  color: #312E2E;
-  font-size: 20px;
-}
-
-#myForm input {
-  width: 100%;
-  height: 50px;
-  border: none;
-  border-radius: 5px;
 }
 
 .total {

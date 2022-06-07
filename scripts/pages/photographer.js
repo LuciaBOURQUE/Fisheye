@@ -17,11 +17,12 @@ fetch('data/photographers.json')
         // Création de la section "Les information du photographe" à partir des données de l'ID
         const profilUser = document.createElement('section');
         profilUser.setAttribute("class", "photograph-header");
+        profilUser.setAttribute("aria-label", "informations general du photographe");
         profilUser.innerHTML = `<aside class="photograph-header__informations">
                                     <div class="informations">
                                         <h1>${profilPhotograph.name}</h1>
-                                        <div class="place">
-                                            <h3>${profilPhotograph.city}</h3>
+                                        <div class="informations__place">
+                                            <h3>${profilPhotograph.city}, </h3>
                                             <h3>${profilPhotograph.country}</h3>
                                         </div>
                                         <h4>${profilPhotograph.tagline}</h4>

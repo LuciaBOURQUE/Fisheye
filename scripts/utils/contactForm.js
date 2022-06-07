@@ -63,6 +63,7 @@ function firstNameInput() {
         return false;
         } else {
         document.querySelector('.first-name').classList.remove("error");
+        document.querySelector('.first-name').classList.add("valid");
         document.querySelector('.first-error').style.opacity = "0";
         return true;
         }

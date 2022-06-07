@@ -19,7 +19,7 @@ h1 {
 h2 {
     color: $saumon;
     @include layoutypo;
-    font-size: 36px;
+    font-size: 34px;
     line-height: 47px;
     margin-bottom: 0;
 }
@@ -27,21 +27,23 @@ h2 {
 h3 {
     color: $brown;
     @include layoutypo;
+    margin: 3px 0;
     padding: 0 3px;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 17px;
 }
 
 h4 {
     color: black;
     @include layoutypo;
-    font-size: 10px;
+    font-size: 13px;
+    margin: 3px 0;
     line-height: 13px;
 }
 
 p {
     color: $grey;
     @include layoutypo;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 13px;
 }

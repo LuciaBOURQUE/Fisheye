@@ -6,21 +6,23 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6b82c41e21.js" crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - Page photographe </title>
   </head>
 
   <body id="body">
     <header>
-      <a href="index.html">
+      <a href="index.html" title="Fisheye">
         <img class="logo"  src="assets/images/logo.png" alt="Logo de Fisheye - page accueil" /> <!-- 1 -->
       </a>
     </header>
 
     <main id="main" aria-hidden="false">
-      <section class="photograph-media">
+      <!-- Medias du photographe -->
+      <section class="photograph-media" aria-label="medias du photographe">
         <div class="photograph-media__grid"></div>
       </section>
 
+      <!-- Affichage bloc des Likes du photographe -->
       <div class="total">
         <div class="total__likes">
           <p class="like-total"></p>
@@ -34,72 +36,76 @@
         </div>
       </div>
 
-
+      <!-- Lightbox des photos/videos -->
       <aside id="modal-lightbox" class="lightbox-open" aria-label="vue de l'image dans la lightbox" aria-hidden="true">
       </aside>
-      
+
+      <!-- Modal de contact avec le photographe -->
+      <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="modale de contact">
+        <div class="modal">
+          <header>
+            <div class="modal-photographer">
+              <h2 class="modal-contact">Contactez-moi</h2>
+              <h2 class="name-photographer"></h2>
+            </div>
+            <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+          </header>
+  
+          <form
+            name="myForm"
+            id="myForm"
+            action="index.html"
+            method="POST">
+  
+              <!-- Prénom -->
+              <label for="first">Prénom</label>
+              <input
+              class="text-control first-name"
+              type="text"
+              id="first"
+              name="first"
+              placeholder="Jean"
+              required minlength="2"/>
+              <span class="data-error first-error">Veuillez entrez 2 caractères ou plus</span>
+  
+              <!-- Nom -->
+              <label for="last">Nom</label>
+              <input
+              class="text-control last-name"
+              type="text"
+              id="last"
+              name="last"
+              placeholder="Neymar"
+              required minlength="2"/>
+              <span class="data-error last-error">Veuillez entrez 2 caractères ou plus</span>
+  
+              <!-- Email -->
+              <label for="email">E-mail</label>
+              <input
+              type="email"
+              class="text-control email-name"
+              id="email"
+              name="email"
+              placeholder="exemple@gmail.com"
+              required/>
+              <span class="data-error email-error">Veuillez entrez une adresse mail valide</span>
+  
+              <!-- Message -->
+              <label for="message">Votre message</label>
+              <input
+              class="text-control message"
+              type="text"
+              id="message"
+              name="message"
+              placeholder="Entrez votre message ici :)"/>
+              <span class="data-error message-error">Veuillez entrez votre message</span>
+  
+            <button class="contact_button" type="submit">Envoyer</button>
+          </form>
+  
+        </div>
+      </div>
     </main>
-
-    <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="modale de contact avec POINTE">
-			<div class="modal">
-				<header>
-          <div class="modal-photographer">
-            <h2 class="modal-contact">Contactez-moi</h2>
-            <h2 class="name-photographer"></h2>
-          </div>
-          <img class="modal-close-btn" src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-
-				<form
-          name="myForm"
-          id="myForm"
-          action="index.html"
-          method="GET">
-
-            <!-- Prénom -->
-						<label for="first">Prénom</label>
-            <input
-            class="text-control first-name"
-            type="text"
-            id="first"
-            name="first"
-            required minlength="2"/>
-            <span class="data-error first-error">Veuillez entrez 2 caractères ou plus</span>
-
-            <!-- Nom -->
-            <label for="last">Nom</label>
-            <input
-            class="text-control last-name"
-            type="text"
-            id="last"
-            name="last"
-            required minlength="2"/>
-            <span class="data-error last-error">Veuillez entrez 2 caractères ou plus</span>
-
-            <!-- Email -->
-            <label for="email">E-mail</label>
-            <input
-            type="email"
-            class="text-control email-name"
-            id="email"
-            name="email"
-            required/>
-            <span class="data-error email-error">Veuillez entrez une adresse mail valide</span>
-
-            <!-- Message -->
-						<label for="message">Votre message</label>
-            <input
-            class="text-control message"
-            type="text"
-            id="message"
-            name="message"/>
-            <span class="data-error message-error">Veuillez entrez votre message</span>
-
-          <button class="contact_button" type="submit">Envoyer</button>
-				</form>
-
-			</div>
-		</div>
 
 
     <script src="/scripts/utils/menuSort.js"></script>
