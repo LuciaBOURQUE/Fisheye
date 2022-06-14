@@ -67,18 +67,10 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px 90px;
         margin-top: 30px;
-        .media_photo img {
-            width: 350px;
-            height: 300px;
-            border-radius: 5px;
-            overflow: hidden;
-            object-position: 50% 50%;
-            object-fit: cover;
-        }
     }
 }
 
-.media_video video {
+.media_photo__image img, .media_photo__video video {
     width: 350px;
     height: 300px;
     border-radius: 5px;
@@ -103,6 +95,9 @@
 .information-likes {
     display: flex;
 }
+
+
+
 
 
 ///////////// PRICE /////////////

@@ -9,12 +9,14 @@ fetch('data/photographers.json')
     .then(response => {
         return response.json();
     })
+
     .then(data => {
-        // --------- SECTION 1 : Le Photographe --------- //
         const photographer = data.photographers;
+        const medias = data.media;
         const profilPhotograph = photographer.find((profil) => profil.id == id);
 
-        // Création de la section "Les information du photographe" à partir des données de l'ID
+        // --------- SECTION 1 : Le profil du photographe --------- //
+        // Création de la section "Les informations du photographe" à partir des données de l'ID
         const profilUser = document.createElement('section');
         profilUser.setAttribute("class", "photograph-header");
         profilUser.setAttribute("aria-label", "informations general du photographe");
@@ -33,17 +35,15 @@ fetch('data/photographers.json')
                                 
                                 <img src="assets/photographers/${profilPhotograph.portrait}" alt="${profilPhotograph.name}"/>`
 
-
         const photographerMain = document.getElementById("main");
         photographerMain.appendChild(profilUser);
 
 
-        // --------- SECTION 2 : Les Médias --------- //
-        const medias = data.media;
 
+        // --------- SECTION 2 : Les médias(photos/videos) du photographe --------- //
         // Affichage de l'input et des médias
-        displayMedia(medias);
         displayInput(medias);
+        displayMedia(medias);
 
         // Affichage par tri "menuSort.js"
         document.getElementById('trie').addEventListener('change', (e) => {
@@ -56,10 +56,13 @@ fetch('data/photographers.json')
         attachEventListenerToggleLike();
 
 
-        // Affichage dynamique de la lightbox
+        // Affichage dynamique de la lightbox + Accessibilité clavier
         const mediaPhoto = document.querySelectorAll(".media_photo__image");
+        const mediaVideo = document.querySelectorAll(".media_photo__video");
+        const mediasAll = mediaPhoto + mediaVideo;
+        console.log(mediaVideo);
         mediaPhoto.forEach((image) => {
-            image.addEventListener('click', () => {
+            image.addEventListener('click', ()=> {
                 displayLightbox(medias, image.parentNode.id);
                 openLightbox();
 
@@ -67,7 +70,18 @@ fetch('data/photographers.json')
                 let index = arr.indexOf(image); // Image actuel
 
                 let btnPrevious = document.querySelector('.arrow-left');
-                btnPrevious.addEventListener('click', (e) => {
+                btnPrevious.addEventListener('keydown', (e) => {
+                    console.log(e)
+                    if (e.key == "ArrowLeft") {
+                        index -= 1; 
+
+                        if (index < 0) {
+                            index = arr.length - 1
+                        }
+                        changeMediaOnLightbox(arr, index);
+                    }
+                });
+                btnPrevious.addEventListener('click', () => {
                     index -= 1; 
 
                     if (index < 0) {
@@ -76,8 +90,10 @@ fetch('data/photographers.json')
                     changeMediaOnLightbox(arr, index);
                 });
 
+
+
                 let btnNext = document.querySelector('.arrow-right');
-                btnNext.addEventListener('click', (e) => {
+                btnNext.addEventListener('click', () => {
                     index += 1; 
 
                     if (index >= arr.length) {
@@ -85,9 +101,32 @@ fetch('data/photographers.json')
                     }
                     changeMediaOnLightbox(arr, index);
                 });
+                btnNext.addEventListener('keydown', (e) => {
+                    if (e.key === "ArrowRight") {
+                        index += 1; 
+
+                        if (index >= arr.length) {
+                            index = 0
+                        }
+                        changeMediaOnLightbox(arr, index);
+                    }
+                });
 
             });
+
+            // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
+            image.addEventListener("keydown", (e) => {
+                if(e.key === "Enter") {
+                    displayLightbox(medias, image.parentNode.id);
+                    openLightbox();
+                }
+
+                if(e.key === "Escape") {
+                    closeLightbox();
+                }
+            })
         })
+
 
         // --- Ouverture et fermeture de la modal ----
         // Affichage du nom du Photographe dans la modal
@@ -106,11 +145,12 @@ fetch('data/photographers.json')
         openAcessKeydownModal.addEventListener("keydown", (e) => {
             if(e.key === "Enter") {
                 openModal();
+                document.querySelector(".first-name").focus();
                 modalNamePhotographe();
             }
         })
 
-        // Fermeture de la modal pour l'Acessibilité via la touche "Escape"
+        // Fermeture de la modal + l'Acessibilité via la touche "Escape"
         const closeAcessKeydownModal = document.querySelector('.open-modal-button');
         closeAcessKeydownModal.addEventListener("keydown", (e) => {
             if(e.key === "Escape") {
@@ -120,14 +160,11 @@ fetch('data/photographers.json')
 
 
     })
-/*
-.catch(error => {
-console.log('Vous avez fait une erreur:' + error);
-})*/
-
-
-
-
+    
+    /*
+    .catch(error => {
+    console.log('Vous avez fait une erreur:' + error);
+    })*/
 
 
 // Création d'une fonction pour l'input du menu déroulant
@@ -146,13 +183,16 @@ function displayMedia(medias) {
     medias.forEach((media) => {
         const photographerMedia = mediaFactory(media);
         if (media.photographerId == id) {
-            const mediaUser = photographerMedia.getMediaCardDOM();
-            mediaGrid.appendChild(mediaUser);
-
-            //const videoUser = photographerMedia.getVideoCardDOM();
-            //mediaGrid.appendChild(videoUser);
+            if (media.image) {
+                const mediaUser = photographerMedia.getPhotoCardDOM();
+                mediaGrid.appendChild(mediaUser);
+            } else {
+                const mediaUser = photographerMedia.getVideoCardDOM();
+                mediaGrid.appendChild(mediaUser);
+            } 
         }
     });
+
 }
 
 // Création d'une fonction pour la lightbox

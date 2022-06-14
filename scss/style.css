@@ -473,18 +473,7 @@ header {
   margin-top: 30px;
 }
 
-.photograph-media__grid .media_photo img {
-  width: 350px;
-  height: 300px;
-  border-radius: 5px;
-  overflow: hidden;
-  -o-object-position: 50% 50%;
-     object-position: 50% 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.media_video video {
+.media_photo__image img, .media_photo__video video {
   width: 350px;
   height: 300px;
   border-radius: 5px;

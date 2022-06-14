@@ -19,8 +19,8 @@ function lightboxFactory () {
                                     <img class="media" aria-label="${media.title}" src="assets/images/${media.image}" alt="${media.title}" >
                                 </div>
                                 <p class="title">${media.title}</p>
-                                <button class="arrow-left" aria-label="précédent"><i role="button" class="fas fa-chevron-left"></i></button>
-                                <button class="arrow-right" aria-label="suivant"><i role="button" class="fas fa-chevron-right"></i></button>
+                                <button class="arrow-left" aria-label="précédent" tabindex="0" ><i role="button" class="fas fa-chevron-left"></i></button>
+                                <button class="arrow-right" aria-label="suivant" tabindex="0"><i role="button" class="fas fa-chevron-right"></i></button>
                                 <button class="close" aria-label="fermeture de la lightbox" onclick="closeLightbox()"><i class="fas fa-times"></i></button>`
         
 
