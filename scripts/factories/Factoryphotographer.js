@@ -1,9 +1,10 @@
-// FACTORY FUNCTION (Design pattern type Creational Design) - LES PHOTOGRAPHES
+// FACTORY FUNCTION - LES PHOTOGRAPHES
 
 function photographerFactory (data) {
     const { name, id, city, country, tagline, price, portrait } = data;
     const picture = `assets/photographers/${portrait}`;
     
+    // Création de type carte pour un PHOTOGRAPHE
     function getUserCardDOM() {
         const profil = document.createElement('article');
         profil.setAttribute("class", "photographer");

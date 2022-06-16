@@ -1,18 +1,10 @@
-// Menu déroulant par tri
-/*
-1) Si je sélectionne Popularité dans le menu déroulant
-2) Apparait toutes les photos dans l'ordre décroissant
-3) On va aller chercher le nombre de likes dans le tableau
-4) On va les trier dans l'ordre décroissant (plus grand au plus petit)
-*/
+// GERER LA DYNAMIQUE DE L'INPUT(menu déroulant)
 
 // Sélection par tri
 function selectChange(event, media) {
     let selectElement = event.target;
     let value = selectElement.value;
-    console.log('Vous avez sélectionnée:' + value);
 
-    
     if (value == "popularite") {
         sortPopularite(media);
     }

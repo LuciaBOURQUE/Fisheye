@@ -1,24 +1,22 @@
 .lightbox-open {
+    display:none;
     position: fixed;
     top: 0px;
     left:0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: white;
     z-index: 1;
-    //height: 100%;
+    height: 100%;
     width: 100%;
 }
 
 .lightbox-container {
     position: relative;
-    display: inline-grid;
-    grid-template-columns: 40px minmax(130px, calc(100% - 100px)) 40px;
+    display: grid;
+    grid-template-columns: 130px minmax(130px, calc(100% - 100px)) 130px;
     grid-template-rows: repeat(2, auto);
     grid-column-gap: 10px;
-    grid-row-gap: 5px;
-    max-width: 95%;
+    grid-row-gap: 20px;
+    margin-top:3%;
     &__media {
         display: flex;
         justify-content: center;
@@ -28,8 +26,9 @@
 .media {
     object-fit: cover;
     grid-area: 1/2/2/3;
-    width: 100%;
-    max-height: calc(100vh - 80px);
+    width: 70%;
+    //max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
     border-radius: 5px;
 }
 

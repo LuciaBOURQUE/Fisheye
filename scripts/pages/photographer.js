@@ -57,19 +57,27 @@ fetch('data/photographers.json')
 
 
         // Affichage dynamique de la lightbox + Accessibilité clavier
-        const mediaPhoto = document.querySelectorAll(".media_photo__image");
-        const mediaVideo = document.querySelectorAll(".media_photo__video");
-        const mediasAll = mediaPhoto + mediaVideo;
-        console.log(mediaVideo);
-        mediaPhoto.forEach((image) => {
+        //const mediaPhoto = document.querySelectorAll(".media_photo__image");
+        const mediasPhotographers = document.querySelectorAll(".medias_photographer");
+
+        mediasPhotographers.forEach((image) => {
             image.addEventListener('click', ()=> {
                 displayLightbox(medias, image.parentNode.id);
                 openLightbox();
 
-                const arr = Array.from(mediaPhoto);
+                const arr = Array.from(mediasPhotographers);
                 let index = arr.indexOf(image); // Image actuel
 
                 let btnPrevious = document.querySelector('.arrow-left');
+                btnPrevious.addEventListener('click', () => {
+                    index -= 1; 
+
+                    if (index < 0) {
+                        index = arr.length - 1
+                    }
+                    changeMediaOnLightbox(arr, index);
+                });
+                /*
                 btnPrevious.addEventListener('keydown', (e) => {
                     console.log(e)
                     if (e.key == "ArrowLeft") {
@@ -80,15 +88,7 @@ fetch('data/photographers.json')
                         }
                         changeMediaOnLightbox(arr, index);
                     }
-                });
-                btnPrevious.addEventListener('click', () => {
-                    index -= 1; 
-
-                    if (index < 0) {
-                        index = arr.length - 1
-                    }
-                    changeMediaOnLightbox(arr, index);
-                });
+                });*/
 
 
 
@@ -101,6 +101,7 @@ fetch('data/photographers.json')
                     }
                     changeMediaOnLightbox(arr, index);
                 });
+                /*
                 btnNext.addEventListener('keydown', (e) => {
                     if (e.key === "ArrowRight") {
                         index += 1; 
@@ -110,7 +111,7 @@ fetch('data/photographers.json')
                         }
                         changeMediaOnLightbox(arr, index);
                     }
-                });
+                });*/
 
             });
 
@@ -167,7 +168,10 @@ fetch('data/photographers.json')
     })*/
 
 
-// Création d'une fonction pour l'input du menu déroulant
+/*
+- Fonction affichage INPUT(menu déroulant)
+_ Aavec appel de la Factory Media
+*/
 function displayInput(medias) {
     const mediaSection = document.querySelector(".photograph-media");
     const input = mediaFactory(medias);
@@ -175,13 +179,18 @@ function displayInput(medias) {
     mediaSection.appendChild(inputUser);
 }
 
-// Création d'une fonction forEach pour chaque média
+
+/*
+- Fonction affichage MEDIAS (images+videos)
+_ Aavec appel de la Factory Media
+*/
 function displayMedia(medias) {
     const mediaGrid = document.querySelector(".photograph-media__grid");
     mediaGrid.innerHTML = '';
 
     medias.forEach((media) => {
         const photographerMedia = mediaFactory(media);
+        //console.log(photographerMedia);
         if (media.photographerId == id) {
             if (media.image) {
                 const mediaUser = photographerMedia.getPhotoCardDOM();
@@ -195,10 +204,30 @@ function displayMedia(medias) {
 
 }
 
-// Création d'une fonction pour la lightbox
-function displayLightbox(medias, id, image) {
+
+/*
+- Fonction affichage LIGHTBOX
+_ Aavec appel de la Factory Lightbox
+*/ 
+function displayLightbox(medias, id) {
     const lightboxAside = document.getElementById("modal-lightbox");
-    lightboxFactory().initMedia(medias);
+    //lightboxAside.innerHTML = '';
+    lightboxFactory().initMedia(medias)
+
     const lightboxImage = lightboxFactory().getLightboxImageDOM(id);
     lightboxAside.appendChild(lightboxImage);
+
+    console.log(lightboxAside);
+
+    /*
+    medias.forEach((media) => {
+        console.log(media);
+        if (media.image) {
+            const lightboxImage = lightboxFactory().getLightboxImageDOM(id);
+            lightboxAside.appendChild(lightboxImage);
+        } else {
+            const lightboxVideo = lightboxFactory().getLightboxVideoDOM(id);
+            lightboxAside.appendChild(lightboxVideo);
+        }
+    })*/
 }

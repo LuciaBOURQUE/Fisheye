@@ -39,6 +39,8 @@ function validateForm () {
             console.log("Email; " + email.value);
             console.log("Message; " + message.value);
             return true;
+
+            //VIDER le formulaire après
         } else {
             validationOfInput();
             return false
@@ -53,7 +55,7 @@ function validationOfInput() {
 }
 
 
-// Entrer du Prénom utilisateur
+// Entrée du Prénom utilisateur
 function firstNameInput() {
     const first = document.forms["myForm"]["first"].value;
 
@@ -69,7 +71,7 @@ function firstNameInput() {
         }
 }
 
-// Entrer du Nom utilisateur
+// Entrée du Nom utilisateur
 function lastNameInput() {
     const last = document.forms["myForm"]["last"].value;
 
@@ -84,7 +86,7 @@ function lastNameInput() {
         }
 }
 
-// Entrer de l'Email(regex) utilisateur
+// Entrée de l'Email(regex) utilisateur
 function emailInput() {
     const email = document.forms["myForm"]["email"].value;
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -100,11 +102,11 @@ function emailInput() {
         }
 }
 
-// Entrer du Message utilisateur
+// Entrée du Message utilisateur
 function messageInput() {
     const message = document.forms["myForm"]["message"].value;
 
-    if(message.trim() == null || message === "" ){
+    if(message.trim() == null || message === " " ){
         document.querySelector('.message').classList.add("error");
         document.querySelector('.message-error').style.opacity = "1";
         return false;

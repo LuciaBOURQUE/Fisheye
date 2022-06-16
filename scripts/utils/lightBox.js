@@ -1,4 +1,5 @@
 // GERER LA DYNAMIQUE DE LA LIGHTBOX
+
 const main = document.getElementById("main");
 const lightbox = document.getElementById("modal-lightbox");
 const body = document.getElementById("body");
@@ -22,11 +23,16 @@ function closeLightbox () {
     lightbox.removeChild(boxContainer);
 }
 
+// Changement d'image et de texte au niveau de la lightbox
 function changeMediaOnLightbox(arr, index) {
-    const slideIndex = arr[index]
+    const slideIndex = arr[index] // Aperçu de l'image précédente ou suivante
+    const titleImageLightbox = document.querySelector('.lightbox-title');
 
-    const src = slideIndex.firstElementChild.getAttribute("src");
-    const here = document.querySelector('.media');
+    const srcImageLightbox = slideIndex.firstElementChild.getAttribute("src");
+    const altTitleLightbox = slideIndex.firstElementChild.getAttribute("alt");
+    const hereMedia = document.querySelector('.media');
 
-    here.setAttribute("src", src);
+    hereMedia.setAttribute("src", srcImageLightbox);
+    hereMedia.setAttribute("alt", altTitleLightbox);
+    titleImageLightbox.innerHTML = altTitleLightbox;
 }
