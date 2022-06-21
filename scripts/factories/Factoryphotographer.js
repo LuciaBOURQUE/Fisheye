@@ -19,7 +19,7 @@ function photographerFactory (data) {
                                 <h3>${country}</h3>
                             </div>
                             <h4>${tagline}</h4>
-                            <p>${price} €/jour</p>`
+                            <p>${price} €/jour</p> `
         return (profil);
     }
 

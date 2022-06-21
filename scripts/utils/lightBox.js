@@ -23,9 +23,10 @@ function closeLightbox () {
     lightbox.removeChild(boxContainer);
 }
 
-// Changement d'image et de texte au niveau de la lightbox
+// Changement d'image/video et de texte au niveau de la lightbox
 function changeMediaOnLightbox(arr, index) {
     const slideIndex = arr[index] // Aperçu de l'image précédente ou suivante
+    console.log(arr);
     const titleImageLightbox = document.querySelector('.lightbox-title');
 
     const srcImageLightbox = slideIndex.firstElementChild.getAttribute("src");

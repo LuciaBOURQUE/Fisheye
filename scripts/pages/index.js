@@ -1,25 +1,23 @@
-/*
-Récupération des données JSON avec la méthode "FETCH"
-*/
+// Récupération des données JSON avec la méthode "FETCH"
 
 fetch('data/photographers.json') // On va contacter le fichier ou se situe les données
-.then(response => { // Je récupère une réponse('response') avec THEN
-return response.json(); // On formate ici la réponse('reponse') en JSON pour pouvoir la lire
-})
+    .then(response => { // Je récupère une réponse('response') avec THEN
+    return response.json(); // On formate ici la réponse('reponse') en JSON pour pouvoir la lire
+    })
             
-.then(data => {
-    const photographers = data.photographers;
-    displayProfilData(photographers);
-})
+    .then(data => {
+        const photographers = data.photographers;
+        displayProfilData(photographers);
+    })
 
-.catch(error => {
-console.log('Vous avez fait une erreur:' + error);
-})
+    .catch(error => {
+    console.log('Vous avez fait une erreur:' + error);
+    })
 
 
-/* 
-Création d'une fonction pour l'affichage des données d'UN photographe
-Appel de la factory Factoryphotographer.js
+/*
+- Fonction affichage PHOTOGRAPHE (data)
+_ Aavec appel de la Factory Photographer
 */
 function displayProfilData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");

@@ -1,5 +1,6 @@
 // GERER LA DYNAMIQUE DES LIKES
 
+//Affichage du nombre total des likes
 function initAllLikeCounter () {
     let totalLike = document.querySelector('.like-total');
     let allLikes = document.querySelectorAll('.likes');
@@ -14,8 +15,7 @@ function initAllLikeCounter () {
     totalLike.innerHTML = count;
 }
 
-
-// Affichage du nombre total des likes
+// Dynamique des likes avec toggle
 function attachEventListenerToggleLike () {
     let icons = document.querySelectorAll('.icon');
     icons.forEach((icon) => {

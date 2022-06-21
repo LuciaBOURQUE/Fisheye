@@ -1,7 +1,7 @@
 // FACTORY FUNCTION - LES MEDIAS
 
 function mediaFactory (data) {
-    const { id, title, image, video, likes, date } = data;
+    const { id, title, image, video, likes } = data;
     const photo = `assets/images/${image}`;
     const movie = `assets/images/${video}`;
 
@@ -48,7 +48,7 @@ function mediaFactory (data) {
         return (videoUser);
     }
 
-    // Création de l'input pour le trie
+    // Création de l'input pour le trie (menu déroulant)
     function getInputSelection() {
         const input = document.createElement('div');
         input.classList.add("photograph-media__input");

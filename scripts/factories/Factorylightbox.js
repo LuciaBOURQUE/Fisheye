@@ -20,12 +20,8 @@ function lightboxFactory () {
                                 <button class="arrow-left" aria-label="précédent" tabindex="0" ><i role="button" class="fas fa-chevron-left"></i></button>
                                 <button class="arrow-right" aria-label="suivant" tabindex="0"><i role="button" class="fas fa-chevron-right"></i></button>
                                 <button class="close" aria-label="fermeture de la lightbox" onclick="closeLightbox()"><i class="fas fa-times"></i></button>`
-        
-
         return (lightbox);
     }
-
-
 
     // Lightbox VIDEOS
     function getLightboxVideoDOM(id) {
@@ -44,7 +40,6 @@ function lightboxFactory () {
                                 <button class="close" aria-label="fermeture de la lightbox" onclick="closeLightbox()"><i class="fas fa-times"></i></button>`
         return (lightbox);
     }
-
 
     return {
         initMedia,

@@ -56,79 +56,6 @@ fetch('data/photographers.json')
         attachEventListenerToggleLike();
 
 
-        // Affichage dynamique de la lightbox + Accessibilité clavier
-        //const mediaPhoto = document.querySelectorAll(".media_photo__image");
-        const mediasPhotographers = document.querySelectorAll(".medias_photographer");
-
-        mediasPhotographers.forEach((image) => {
-            image.addEventListener('click', ()=> {
-                displayLightbox(medias, image.parentNode.id);
-                openLightbox();
-
-                const arr = Array.from(mediasPhotographers);
-                let index = arr.indexOf(image); // Image actuel
-
-                let btnPrevious = document.querySelector('.arrow-left');
-                btnPrevious.addEventListener('click', () => {
-                    index -= 1; 
-
-                    if (index < 0) {
-                        index = arr.length - 1
-                    }
-                    changeMediaOnLightbox(arr, index);
-                });
-                /*
-                btnPrevious.addEventListener('keydown', (e) => {
-                    console.log(e)
-                    if (e.key == "ArrowLeft") {
-                        index -= 1; 
-
-                        if (index < 0) {
-                            index = arr.length - 1
-                        }
-                        changeMediaOnLightbox(arr, index);
-                    }
-                });*/
-
-
-
-                let btnNext = document.querySelector('.arrow-right');
-                btnNext.addEventListener('click', () => {
-                    index += 1; 
-
-                    if (index >= arr.length) {
-                        index = 0
-                    }
-                    changeMediaOnLightbox(arr, index);
-                });
-                /*
-                btnNext.addEventListener('keydown', (e) => {
-                    if (e.key === "ArrowRight") {
-                        index += 1; 
-
-                        if (index >= arr.length) {
-                            index = 0
-                        }
-                        changeMediaOnLightbox(arr, index);
-                    }
-                });*/
-
-            });
-
-            // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
-            image.addEventListener("keydown", (e) => {
-                if(e.key === "Enter") {
-                    displayLightbox(medias, image.parentNode.id);
-                    openLightbox();
-                }
-
-                if(e.key === "Escape") {
-                    closeLightbox();
-                }
-            })
-        })
-
-
         // --- Ouverture et fermeture de la modal ----
         // Affichage du nom du Photographe dans la modal
         function modalNamePhotographe() {
@@ -159,15 +86,86 @@ fetch('data/photographers.json')
             }
         })
 
+        // Affichage dynamique de la lightbox + Accessibilité clavier
+        //const mediaPhoto = document.querySelectorAll(".media_photo__image");
+        const mediasPhotographers = document.querySelectorAll(".medias_photographer");
+        mediasPhotographers.forEach((image) => {
+            image.addEventListener('click', ()=> {
+                displayLightbox(medias, image.parentNode.id);
+                openLightbox();
+
+                const arr = Array.from(mediasPhotographers);
+                let index = arr.indexOf(image); // Image actuel
+
+                let btnPrevious = document.querySelector('.arrow-left');
+                btnPrevious.addEventListener('click', () => {
+                    index -= 1; 
+
+                    if (index < 0) {
+                        index = arr.length - 1
+                    }
+                    changeMediaOnLightbox(arr, index);
+                });
+                
+               window.addEventListener('keydown', (e) => {
+                    console.log(e)
+                    if (e.key == "ArrowLeft") {
+                        index -= 1; 
+
+                        if (index < 0) {
+                            index = arr.length - 1
+                        }
+                        changeMediaOnLightbox(arr, index);
+                    }
+                });
+
+
+
+                let btnNext = document.querySelector('.arrow-right');
+                btnNext.addEventListener('click', () => {
+                    index += 1; 
+
+                    if (index >= arr.length) {
+                        index = 0
+                    }
+                    changeMediaOnLightbox(arr, index);
+                });
+                
+                btnNext.addEventListener('keydown', (e) => {
+                    if (e.key === "ArrowRight") {
+                        index += 1; 
+
+                        if (index >= arr.length) {
+                            index = 0
+                        }
+                        changeMediaOnLightbox(arr, index);
+                    }
+                });
+
+            });
+
+            // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
+            image.addEventListener("keydown", (e) => {
+                if(e.key === "Enter") {
+                    displayLightbox(medias, image.parentNode.id);
+                    openLightbox();
+                }
+
+                if(e.key === "Escape") {
+                    closeLightbox();
+                }
+            })
+        })
+
 
     })
     
-    /*
     .catch(error => {
     console.log('Vous avez fait une erreur:' + error);
-    })*/
+    })
 
 
+    
 /*
 - Fonction affichage INPUT(menu déroulant)
 _ Aavec appel de la Factory Media
@@ -211,23 +209,14 @@ _ Aavec appel de la Factory Lightbox
 */ 
 function displayLightbox(medias, id) {
     const lightboxAside = document.getElementById("modal-lightbox");
-    //lightboxAside.innerHTML = '';
     lightboxFactory().initMedia(medias)
 
-    const lightboxImage = lightboxFactory().getLightboxImageDOM(id);
+    const media = medias.find(element => element.id === parseInt(id));
+    if(media.image) {
+        var lightboxImage = lightboxFactory().getLightboxImageDOM(id);
+    } else {
+        var lightboxImage = lightboxFactory().getLightboxVideoDOM(id);
+    }
+    
     lightboxAside.appendChild(lightboxImage);
-
-    console.log(lightboxAside);
-
-    /*
-    medias.forEach((media) => {
-        console.log(media);
-        if (media.image) {
-            const lightboxImage = lightboxFactory().getLightboxImageDOM(id);
-            lightboxAside.appendChild(lightboxImage);
-        } else {
-            const lightboxVideo = lightboxFactory().getLightboxVideoDOM(id);
-            lightboxAside.appendChild(lightboxVideo);
-        }
-    })*/
 }
