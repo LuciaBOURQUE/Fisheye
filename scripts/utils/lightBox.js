@@ -24,32 +24,36 @@ function closeLightbox () {
 }
 
 // Changement d'image/video et de texte au niveau de la lightbox
-function changeMediaOnLightbox(arr, index) {
-    var slideIndex = arr[index] // Aperçu de l'image précédente ou suivante
-    console.log(slideIndex);
+function changeMediaOnLightbox(arr, index, medias) {
+    let slideIndex = arr[index].closest('div'); // Aperçu de l'image précédente ou suivante
+    let id = slideIndex.id
 
-    var titleImageLightbox = document.querySelector('.lightbox-title');
-    let altTitleLightbox = slideIndex.firstElementChild.getAttribute("alt");
-    titleImageLightbox.innerHTML = altTitleLightbox;
+    let titleMediaLightbox = document.querySelector('.lightbox-title');
+    let altTitleLightbox = arr[index].firstElementChild.getAttribute("alt");
+    titleMediaLightbox.innerHTML = altTitleLightbox;
 
+    let video = document.querySelector('.video-lightbox');
+    let img = document.querySelector('.img-lightbox');
 
-    if(slideIndex.image) { // IMAGE
-        console.log("slideIndex.image")
+    const media = medias.find(element => element.id === parseInt(id));
 
-        let srcMediaLightbox = slideIndex.firstElementChild.getAttribute("src");
-        let hereMedia = document.querySelector('.media');
-        hereMedia.setAttribute("src", srcMediaLightbox);
+    if(media.image) { // IMAGE
+        let pathImg = `assets/images/${media.image}`
 
-    } 
-    /*else { // VIDEO
-        console.log("video")
+        let hereMedia = document.querySelector('.img-lightbox');
+        hereMedia.setAttribute("src", pathImg);
 
-        let srcMediaLightbox = slideIndex.getAttribute("src");
-        console.log(srcMediaLightbox);
+        video.classList.add('none');
+        img.classList.remove('none');
+
+    } else { // VIDEO
+        let pathVideo = `assets/images/${media.video}`
 
         let hereVideo = document.querySelector('.media-video');
-        console.log(hereVideo);
+        hereVideo.setAttribute("src", pathVideo);
+        video.load();
 
-        hereVideo.setAttribute("src", srcMediaLightbox);
-    }*/
+        img.classList.add('none');
+        video.classList.remove('none');
+    }
 }

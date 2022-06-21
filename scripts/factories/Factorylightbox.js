@@ -14,7 +14,10 @@ function lightboxFactory () {
         lightbox.classList.add("lightbox-container");
 
         lightbox.innerHTML = `  <div class="lightbox-container__media">
-                                    <img class="media" src="assets/images/${media.image}" alt="${media.title}" >
+                                    <img class="media img-lightbox" src="assets/images/${media.image}" alt="${media.title}" >
+                                    <video class="media none video-lightbox" alt="${media.title}" controls="controls" >
+                                        <source class="media-video" src="" type="video/mp4">
+                                    </video>
                                 </div>
                                 <p class="lightbox-title">${media.title}</p>
                                 <button class="arrow-left" aria-label="précédent" tabindex="0" ><i role="button" class="fas fa-chevron-left"></i></button>
@@ -30,7 +33,8 @@ function lightboxFactory () {
         lightbox.classList.add("lightbox-container");
 
         lightbox.innerHTML = `  <div class="lightbox-container__media">
-                                    <video class="media" alt="${media.title}" controls="controls" >
+                                    <img class="media none img-lightbox" src="" alt="${media.title}" >
+                                    <video class="media video-lightbox" alt="${media.title}" controls="controls" >
                                         <source class="media-video" src="assets/images/${media.video}" type="video/mp4">
                                     </video>
                                 </div>

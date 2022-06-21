@@ -104,7 +104,7 @@ fetch('data/photographers.json')
                     if (index < 0) {
                         index = arr.length - 1
                     }
-                    changeMediaOnLightbox(arr, index);
+                    changeMediaOnLightbox(arr, index, medias);
                 });
                 
                window.addEventListener('keydown', (e) => {
@@ -114,7 +114,14 @@ fetch('data/photographers.json')
                         if (index < 0) {
                             index = arr.length - 1
                         }
-                        changeMediaOnLightbox(arr, index);
+                        changeMediaOnLightbox(arr, index, medias);
+                    } else if (e.key === "ArrowRight") {
+                        index += 1; 
+
+                        if (index >= arr.length) {
+                            index = 0
+                        }
+                        changeMediaOnLightbox(arr, index, medias);
                     }
                 });
 
@@ -127,19 +134,9 @@ fetch('data/photographers.json')
                     if (index >= arr.length) {
                         index = 0
                     }
-                    changeMediaOnLightbox(arr, index);
+                    changeMediaOnLightbox(arr, index, medias);
                 });
-                
-                window.addEventListener('keydown', (e) => {
-                    if (e.key === "ArrowRight") {
-                        index += 1; 
-
-                        if (index >= arr.length) {
-                            index = 0
-                        }
-                        changeMediaOnLightbox(arr, index);
-                    }
-                });
+            
 
             });
 

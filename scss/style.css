@@ -542,5 +542,9 @@ header {
   height: 15px;
 }
 
+.none {
+  display: none;
+}
+
 /*@import url("photographer.css");*/
 /*# sourceMappingURL=style.css.map */
