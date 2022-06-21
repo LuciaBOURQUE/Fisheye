@@ -31,7 +31,7 @@ function lightboxFactory () {
 
         lightbox.innerHTML = `  <div class="lightbox-container__media">
                                     <video class="media" alt="${media.title}" controls="controls" >
-                                        <source src="assets/images/${media.video}" type="video/mp4">
+                                        <source class="media-video" src="assets/images/${media.video}" type="video/mp4">
                                     </video>
                                 </div>
                                 <p class="lightbox-title">${media.title}</p>

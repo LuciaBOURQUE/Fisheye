@@ -34,7 +34,7 @@ function mediaFactory (data) {
         videoUser.setAttribute("id", `${id}`);
     
         videoUser.innerHTML = ` <a class="medias_photographer" tabindex="0">
-                                    <video src="assets/images/${video}" type="video/mp4" aria-label="Ouvre la lightbox"></video>
+                                    <video src="assets/images/${video}" alt="${title}" type="video/mp4" aria-label="Ouvre la lightbox"></video>
                                 </a>
                                 <div class="media_photo__information">
                                     <h3>${title}</h3>

@@ -25,15 +25,31 @@ function closeLightbox () {
 
 // Changement d'image/video et de texte au niveau de la lightbox
 function changeMediaOnLightbox(arr, index) {
-    const slideIndex = arr[index] // Aperçu de l'image précédente ou suivante
-    console.log(arr);
-    const titleImageLightbox = document.querySelector('.lightbox-title');
+    var slideIndex = arr[index] // Aperçu de l'image précédente ou suivante
+    console.log(slideIndex);
 
-    const srcImageLightbox = slideIndex.firstElementChild.getAttribute("src");
-    const altTitleLightbox = slideIndex.firstElementChild.getAttribute("alt");
-    const hereMedia = document.querySelector('.media');
-
-    hereMedia.setAttribute("src", srcImageLightbox);
-    hereMedia.setAttribute("alt", altTitleLightbox);
+    var titleImageLightbox = document.querySelector('.lightbox-title');
+    let altTitleLightbox = slideIndex.firstElementChild.getAttribute("alt");
     titleImageLightbox.innerHTML = altTitleLightbox;
+
+
+    if(slideIndex.image) { // IMAGE
+        console.log("slideIndex.image")
+
+        let srcMediaLightbox = slideIndex.firstElementChild.getAttribute("src");
+        let hereMedia = document.querySelector('.media');
+        hereMedia.setAttribute("src", srcMediaLightbox);
+
+    } 
+    /*else { // VIDEO
+        console.log("video")
+
+        let srcMediaLightbox = slideIndex.getAttribute("src");
+        console.log(srcMediaLightbox);
+
+        let hereVideo = document.querySelector('.media-video');
+        console.log(hereVideo);
+
+        hereVideo.setAttribute("src", srcMediaLightbox);
+    }*/
 }

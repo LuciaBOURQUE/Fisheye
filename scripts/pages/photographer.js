@@ -108,7 +108,6 @@ fetch('data/photographers.json')
                 });
                 
                window.addEventListener('keydown', (e) => {
-                    console.log(e)
                     if (e.key == "ArrowLeft") {
                         index -= 1; 
 
@@ -131,7 +130,7 @@ fetch('data/photographers.json')
                     changeMediaOnLightbox(arr, index);
                 });
                 
-                btnNext.addEventListener('keydown', (e) => {
+                window.addEventListener('keydown', (e) => {
                     if (e.key === "ArrowRight") {
                         index += 1; 
 
