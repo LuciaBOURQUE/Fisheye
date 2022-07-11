@@ -49,6 +49,11 @@ fetch('data/photographers.json')
         document.getElementById('trie').addEventListener('change', (e) => {
             selectChange(e, medias);
             displayMedia(medias);
+
+            initAllLikeCounter();
+            attachEventListenerToggleLike();
+
+            lightboxInit();
         })
 
         // Affichage dynamique des likes
@@ -88,71 +93,74 @@ fetch('data/photographers.json')
 
         // Affichage dynamique de la lightbox + Accessibilité clavier
         //const mediaPhoto = document.querySelectorAll(".media_photo__image");
-        const mediasPhotographers = document.querySelectorAll(".medias_photographer");
-        mediasPhotographers.forEach((image) => {
-            image.addEventListener('click', ()=> {
-                displayLightbox(medias, image.parentNode.id);
-                openLightbox();
-
-                const arr = Array.from(mediasPhotographers);
-                let index = arr.indexOf(image); // Image actuel
-
-                let btnPrevious = document.querySelector('.arrow-left');
-                btnPrevious.addEventListener('click', () => {
-                    index -= 1; 
-
-                    if (index < 0) {
-                        index = arr.length - 1
-                    }
-                    changeMediaOnLightbox(arr, index, medias);
-                });
-                
-               window.addEventListener('keydown', (e) => {
-                    if (e.key == "ArrowLeft") {
+        function lightboxInit () {
+            const mediasPhotographers = document.querySelectorAll(".medias_photographer");
+            mediasPhotographers.forEach((image) => {
+                image.addEventListener('click', ()=> {
+                    displayLightbox(medias, image.parentNode.id);
+                    openLightbox();
+    
+                    const arr = Array.from(mediasPhotographers);
+                    let index = arr.indexOf(image); // Image actuel
+    
+                    let btnPrevious = document.querySelector('.arrow-left');
+                    btnPrevious.addEventListener('click', () => {
                         index -= 1; 
-
+    
                         if (index < 0) {
                             index = arr.length - 1
                         }
                         changeMediaOnLightbox(arr, index, medias);
-                    } else if (e.key === "ArrowRight") {
+                    });
+                    
+                   window.addEventListener('keydown', (e) => {
+                        if (e.key == "ArrowLeft") {
+                            index -= 1; 
+    
+                            if (index < 0) {
+                                index = arr.length - 1
+                            }
+                            changeMediaOnLightbox(arr, index, medias);
+                        } else if (e.key === "ArrowRight") {
+                            index += 1; 
+    
+                            if (index >= arr.length) {
+                                index = 0
+                            }
+                            changeMediaOnLightbox(arr, index, medias);
+                        }
+                    });
+    
+    
+    
+                    let btnNext = document.querySelector('.arrow-right');
+                    btnNext.addEventListener('click', () => {
                         index += 1; 
-
+    
                         if (index >= arr.length) {
                             index = 0
                         }
                         changeMediaOnLightbox(arr, index, medias);
-                    }
+                    });
+                
+    
                 });
-
-
-
-                let btnNext = document.querySelector('.arrow-right');
-                btnNext.addEventListener('click', () => {
-                    index += 1; 
-
-                    if (index >= arr.length) {
-                        index = 0
+    
+                // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
+                image.addEventListener("keydown", (e) => {
+                    if(e.key === "Enter") {
+                        displayLightbox(medias, image.parentNode.id);
+                        openLightbox();
                     }
-                    changeMediaOnLightbox(arr, index, medias);
-                });
-            
-
-            });
-
-            // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
-            image.addEventListener("keydown", (e) => {
-                if(e.key === "Enter") {
-                    displayLightbox(medias, image.parentNode.id);
-                    openLightbox();
-                }
-
-                if(e.key === "Escape") {
-                    closeLightbox();
-                }
+    
+                    if(e.key === "Escape") {
+                        closeLightbox();
+                    }
+                })
             })
-        })
+        }
 
+        lightboxInit();
 
     })
     

@@ -43,13 +43,18 @@
     margin-right: 20px;
 }
 
-#trie {
+select {
+    font-size: 1em;
+    font-weight: 500;
     border: none;
     padding: 6px 10px;
     border-radius: 5px;
-    background-color: $brown;
+    background: $brown;
     color: white;
-    font-weight: 500;
+}
+
+.select-option {
+    background: #DB8876;
 }
 
 

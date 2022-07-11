@@ -17,7 +17,7 @@ fetch('data/photographers.json') // On va contacter le fichier ou se situe les d
 
 /*
 - Fonction affichage PHOTOGRAPHE (data)
-_ Aavec appel de la Factory Photographer
+- Avec appel de la Factory Photographer
 */
 function displayProfilData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");

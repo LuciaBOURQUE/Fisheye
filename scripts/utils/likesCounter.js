@@ -15,7 +15,7 @@ function initAllLikeCounter () {
     totalLike.innerHTML = count;
 }
 
-// Dynamique des likes avec toggle
+// Dynamique des likes
 function attachEventListenerToggleLike () {
     let icons = document.querySelectorAll('.icon');
     icons.forEach((icon) => {
