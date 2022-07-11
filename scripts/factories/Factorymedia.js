@@ -55,7 +55,7 @@ function mediaFactory (data) {
         
         input.innerHTML = ` <label for="trie" class="trie-text">Trier par</label>
                             <select name="trie" id="trie" aria-haspopup="liste de selection" role="Liste">
-                                <option class="select-option" value="popularite" selected >Popularité</option>
+                                <option value="popularite" selected >Popularité</option>
                                 <option class="select-option" value="date">Date</option>
                                 <option class="select-option" value="titre">Titre</option>
                             </select> `
