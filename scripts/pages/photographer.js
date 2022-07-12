@@ -34,7 +34,7 @@ fetch('data/photographers.json')
                                     </div>
                                 </aside>
                                 
-                                <button class="open-modal-button">Contactez-moi</button>
+                                <button tabindex="1" class="open-modal-button">Contactez-moi</button>
                                 
                                 <img src="assets/photographers/${profilPhotograph.portrait}" alt="${profilPhotograph.name}"/>`
 
@@ -141,8 +141,6 @@ fetch('data/photographers.json')
                             changeMediaOnLightbox(arr, index, medias);
                         }
                     });
-    
-    
     
                     let btnNext = document.querySelector('.arrow-right');
                     btnNext.addEventListener('click', () => {

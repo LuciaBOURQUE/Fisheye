@@ -31,7 +31,6 @@ function attachEventListenerToggleLike () {
 
                 let countTotal = parseInt(totalLike.innerText) +1;
                 totalLike.innerHTML = countTotal;
-
             } else {
                 let count = parseInt(counter.innerText) -1;
                 counter.removeAttribute('aria-label');
@@ -40,6 +39,29 @@ function attachEventListenerToggleLike () {
                 let countTotal = parseInt(totalLike.innerText) -1;
                 totalLike.innerHTML = countTotal;
             }
-       });
+
+
+            // Accessibilité par le clavier pour +1/-1
+            window.addEventListener('keydown', (e) => {
+                if(e.key == "Enter") {
+                    if (!isLike) {
+                        let count = parseInt(counter.innerText) +1;
+                        counter.setAttribute('aria-label', 'like');
+                        counter.innerHTML = count;
+        
+                        let countTotal = parseInt(totalLike.innerText) +1;
+                        totalLike.innerHTML = countTotal;   
+                    } else {
+                        let count = parseInt(counter.innerText) -1;
+                        counter.removeAttribute('aria-label');
+                        counter.innerHTML = count;
+        
+                        let countTotal = parseInt(totalLike.innerText) -1;
+                        totalLike.innerHTML = countTotal;
+                    }
+                }
+            })
+
+        })
     })
 }
