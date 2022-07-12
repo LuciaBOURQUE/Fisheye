@@ -55,5 +55,16 @@ function changeMediaOnLightbox(arr, index, medias) {
 
         img.classList.add('none');
         video.classList.remove('none');
+
+        const controlAccessibilityVideo = document.querySelector('.video-lightbox')
+        console.log(controlAccessibilityVideo);
+        window.addEventListener('keydown', (e) => {
+            console.log(e);
+            if (e.key == "Space") {
+                controlAccessibilityVideo.play();
+            } else if (e.key == "Space") {
+                controlAccessibilityVideo.pause();
+            }
+        });
     }
 }
