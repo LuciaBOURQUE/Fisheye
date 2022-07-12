@@ -66,5 +66,6 @@ function changeMediaOnLightbox(arr, index, medias) {
                 controlAccessibilityVideo.pause();
             }
         });
+        
     }
 }
