@@ -60,8 +60,6 @@ fetch('data/photographers.json')
         })
 
         // Affichage dynamique des likes
-        initAllLikeCounter();
-        attachEventListenerToggleLike();
         function pricePerDay() {
             const priceDay = document.querySelector(".total-price");
             console.log(priceDay);
@@ -70,6 +68,8 @@ fetch('data/photographers.json')
             priceDay.innerHTML = priceTemplate;
         }
         pricePerDay();
+        initAllLikeCounter();
+        attachEventListenerToggleLike();
 
 
         // --- Ouverture et fermeture de la modal ----

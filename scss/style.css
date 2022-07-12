@@ -219,8 +219,8 @@ svg {
   position: relative;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 130px minmax(130px, calc(100% - 100px)) 130px;
-      grid-template-columns: 130px minmax(130px, calc(100% - 100px)) 130px;
+  -ms-grid-columns: 50%, 50%;
+      grid-template-columns: 50%, 50%;
   -ms-grid-rows: (auto)[2];
       grid-template-rows: repeat(2, auto);
   grid-column-gap: 10px;
@@ -248,6 +248,10 @@ svg {
   width: 70%;
   max-height: calc(100vh - 100px);
   border-radius: 5px;
+}
+
+.video-lightbox {
+  height: 100%;
 }
 
 .arrow-left {
@@ -286,12 +290,16 @@ svg {
   grid-area: 2/2/3/3;
 }
 
+.lightbox-title {
+  color: #901C1C;
+}
+
 .close {
   border: none;
   background-color: transparent;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 5%;
   min-width: 40px;
   min-height: 40px;
   cursor: pointer;
@@ -544,7 +552,7 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 40%;
+  width: 20%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
