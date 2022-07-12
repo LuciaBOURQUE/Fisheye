@@ -75,6 +75,11 @@ p {
   cursor: pointer;
 }
 
+.open-modal-button:hover, .contact_button:hover {
+  color: black;
+  background-color: #D3573C;
+}
+
 svg {
   cursor: pointer;
 }
@@ -509,6 +514,8 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: #901C1C;
+  font-weight: bold;
 }
 
 .total {

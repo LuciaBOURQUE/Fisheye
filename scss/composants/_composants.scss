@@ -1,6 +1,10 @@
 // LES BOUTONS
 .open-modal-button, .contact_button {
     @include btn;
+    &:hover {
+        color: black;
+        background-color: $saumon;
+    }
 }
 
 svg {

@@ -12,8 +12,11 @@ fetch('data/photographers.json')
 
     .then(data => {
         const photographer = data.photographers;
+        //const PricePhotograph = photographer.find((profil) => profil.id == id);
+
         const medias = data.media;
         const profilPhotograph = photographer.find((profil) => profil.id == id);
+        console.log(profilPhotograph);
 
         // --------- SECTION 1 : Le profil du photographe --------- //
         // Création de la section "Les informations du photographe" à partir des données de l'ID
@@ -59,13 +62,21 @@ fetch('data/photographers.json')
         // Affichage dynamique des likes
         initAllLikeCounter();
         attachEventListenerToggleLike();
+        function pricePerDay() {
+            const priceDay = document.querySelector(".total-price");
+            console.log(priceDay);
+            const priceTemplate = `${profilPhotograph.price}€ /jour`;
+            console.log(priceTemplate);
+            priceDay.innerHTML = priceTemplate;
+        }
+        pricePerDay();
 
 
         // --- Ouverture et fermeture de la modal ----
         // Affichage du nom du Photographe dans la modal
         function modalNamePhotographe() {
             const namePhotographer = document.querySelector(".name-photographer");
-            const nameTemplate = `${profilPhotograph.name}`
+            const nameTemplate = `${profilPhotograph.name}`;
             namePhotographer.innerHTML = nameTemplate;
         }
 
@@ -164,9 +175,10 @@ fetch('data/photographers.json')
 
     })
     
+    /*
     .catch(error => {
     console.log('Vous avez fait une erreur:' + error);
-    })
+    })*/
 
 
     
