@@ -1,5 +1,6 @@
 // Récupération de l'ID dans l'URL avec la méthode "URLSearchParams"
 const queryString = window.location.search;
+console.log(queryString);
 const query = new URLSearchParams(queryString);
 const id = query.get('id');
 
@@ -12,9 +13,8 @@ fetch('data/photographers.json')
 
     .then(data => {
         const photographer = data.photographers;
-        //const PricePhotograph = photographer.find((profil) => profil.id == id);
-
         const medias = data.media;
+
         const profilPhotograph = photographer.find((profil) => profil.id == id);
         console.log(profilPhotograph);
 
