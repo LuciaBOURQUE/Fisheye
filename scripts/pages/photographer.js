@@ -1,6 +1,5 @@
 // Récupération de l'ID dans l'URL avec la méthode "URLSearchParams"
 const queryString = window.location.search;
-console.log(queryString);
 const query = new URLSearchParams(queryString);
 const id = query.get('id');
 
@@ -14,9 +13,7 @@ fetch('data/photographers.json')
     .then(data => {
         const photographer = data.photographers;
         const medias = data.media;
-
         const profilPhotograph = photographer.find((profil) => profil.id == id);
-        console.log(profilPhotograph);
 
         // --------- SECTION 1 : Le profil du photographe --------- //
         // Création de la section "Les informations du photographe" à partir des données de l'ID
@@ -62,9 +59,7 @@ fetch('data/photographers.json')
         // Affichage dynamique des likes
         function pricePerDay() {
             const priceDay = document.querySelector(".total-price");
-            console.log(priceDay);
             const priceTemplate = `${profilPhotograph.price}€ /jour`;
-            console.log(priceTemplate);
             priceDay.innerHTML = priceTemplate;
         }
         pricePerDay();
@@ -103,7 +98,6 @@ fetch('data/photographers.json')
         })
 
         // Affichage dynamique de la lightbox + Accessibilité clavier
-        //const mediaPhoto = document.querySelectorAll(".media_photo__image");
         function lightboxInit () {
             const mediasPhotographers = document.querySelectorAll(".medias_photographer");
             mediasPhotographers.forEach((image) => {
@@ -173,10 +167,10 @@ fetch('data/photographers.json')
 
     })
     
-    /*
+    
     .catch(error => {
     console.log('Vous avez fait une erreur:' + error);
-    })*/
+    })
 
 
     

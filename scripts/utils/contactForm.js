@@ -39,8 +39,6 @@ function validateForm () {
             console.log("Email; " + email.value);
             console.log("Message; " + message.value);
             return true;
-
-            //VIDER le formulaire après
         } else {
             validationOfInput();
             return false
