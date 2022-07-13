@@ -145,8 +145,6 @@ fetch('data/photographers.json')
                         }
                         changeMediaOnLightbox(arr, index, medias);
                     });
-                
-    
                 });
     
                 // Accessibilité par le clavier pour ENTRER/FERMER dans la lightbox
