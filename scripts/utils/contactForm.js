@@ -104,7 +104,7 @@ function emailInput() {
 function messageInput() {
     const message = document.forms["myForm"]["message"].value;
 
-    if(message.trim() == null || message === " " ){
+    if(message.trim() == null || message === " " || message === "" ){
         document.querySelector('.message').classList.add("error");
         document.querySelector('.message-error').style.opacity = "1";
         return false;
